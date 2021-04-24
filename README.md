@@ -9,7 +9,12 @@ Uma aplicação web para exibir os podcasts de um canal
 
 ![image](https://user-images.githubusercontent.com/49700354/115946266-6e72d080-a496-11eb-8581-7a9f5b6f830a.png)
 
-## Conteúdo Técnico
+## Preparando o ambiente
+- Node + NPM;
+- Yarn;
+- Visual Studio Code e configurações.
+
+## Conteúdo Técnica
 
 Ambiente de desenvolvimento
 
@@ -24,5 +29,6 @@ SEO com React
 Iniciando com Next.js: Server-side rendering e Static site generation
 
 Criando projeto com Next.js
+
 
 
