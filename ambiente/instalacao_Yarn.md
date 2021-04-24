@@ -11,15 +11,20 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 
 Instale utilizando o seguinte comando:
 
-```bash
-sudo apt update && sudo apt install yarn
-```
+    ```bash
+    sudo apt update && sudo apt install yarn
+    ```
 
 Adicione ao arquivo `~/.bashrc` (ou `~/.zshrc` caso você utilize o shell zsh) a seguinte linha: 
 
-```bash
-export PATH="$PATH:`yarn global bin`"
-```
+    ```bash
+    export PATH="$PATH:`yarn global bin`"
+    ```
+
+Para abrir `~/.bashrc` utilize o seguinte comando:
+    ```
+    sudo gedit ~/.bashrc
+    ```
 
 Feche e abra o terminal novamente, em seguida rode o comando:
 
@@ -28,6 +33,14 @@ Feche e abra o terminal novamente, em seguida rode o comando:
 ```
 
 Caso retorne a versão do Yarn (acima de 1.0, abaixo de 2.0), a instalação ocorreu com sucesso.
+
+Caso não retorne a versão correta: 
+
+    ```
+    sudo apt remove cmdtest
+    sudo apt remove yarn
+    sudo npm install -g yarn
+    ```
 
 ## macOS
 
