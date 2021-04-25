@@ -14,7 +14,7 @@ Uma aplicação web para exibir os podcasts de um canal
 - Yarn;
 - Visual Studio Code e configurações.
 
-## Conteúdo Técnica
+## Conteúdo Técnico do primeiro dia
 
 Ambiente de desenvolvimento
 
@@ -32,9 +32,29 @@ SEO com React (tempo de cada mudança)
 Iniciando com Next.js: 
     * Server-side rendering 
     * Static site generation
-  
+
 [GASTby](https://www.gatsbyjs.com/docs/tutorial/)
 Criando projeto com Next.js
+
+## Conteúdo Técnico do segundo dia
+
+ Por que utilizar TypeScript?
+ * para suprir a necessidade de padrões que dão segurança para a escrita do código 
+* É preciso configurar o typescript no next
+  * yarn add typescript @types/react @types/node -D
+
+Configurando fonte
+* fonts.google.com/specimen/lexend
+  * medium 500
+  * semibold 600
+* fonts.google.com/specimen/inter
+  * regular 400
+ Criando estilos globalIsFinite
+ Componente: header
+ Componente: playername
+ Configurando API em JSON
+ Consumindo API Fake na home
+ SPA vs 
 
 
 
