@@ -22,12 +22,18 @@ Fluxo de uma API (Utilizamos um API fictício)
 
 Iniciando com React
 
-Conceitos do react: componente, estado, propriedade
+Conceitos do react: 
+    * componente
+    * estado
+    * propriedade (passar do componente pai para o componente filho)
 
-SEO com React
+SEO com React (tempo de cada mudança)
 
-Iniciando com Next.js: Server-side rendering e Static site generation
-
+Iniciando com Next.js: 
+    * Server-side rendering 
+    * Static site generation
+  
+[GASTby](https://www.gatsbyjs.com/docs/tutorial/)
 Criando projeto com Next.js
 
 
