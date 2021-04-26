@@ -5,6 +5,7 @@
 // depois que instalaos alteramos os arquivos js para tsx
 // tsx = typescript + jsc (xml/html no javascript)
 
+/*
 type User ={
     name: string,
     address:{  
@@ -52,3 +53,4 @@ function chamarBotao(){
         </div>
     )
 }
+*/
