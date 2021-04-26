@@ -15,9 +15,9 @@
     border-left: 1px solid var(--gray-100)
 }
 
-span{
+span{ // data atual no header
     margin-left: auto;
-    text-transform: capitalize;
+    text-transform: capitalize; //a primeira letra de cada palavra ficará em maiúsculo
 }
 
 }
