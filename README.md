@@ -14,6 +14,11 @@ Uma aplicação web para exibir os podcasts de um canal
 - Yarn;
 - Visual Studio Code e configurações.
 
+Projeto   | Fluxo da aplicação
+--------- | ------
+![image](https://user-images.githubusercontent.com/49700354/116026478-d9e8a980-a620-11eb-87e6-57bb54723247.png) | ![image](https://user-images.githubusercontent.com/49700354/116026460-d05f4180-a620-11eb-89b5-d4fe55aee709.png)
+
+
 ## Conteúdo Técnico do primeiro dia
 
 Ambiente de desenvolvimento
