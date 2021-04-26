@@ -25,22 +25,22 @@ export function Player(){
                 </div>
 
                 <div className={styles.buttons}>
-                    <button type="buttom">
+                    <button type="button">
                         <img src="/shuffle.svg" alt="Aleatório"/>
                     </button>
 
-                    <button type="buttom">
+                    <button type="button">
                         <img src="/play-previous.svg" alt="Tocar anterior"/>
                     </button>
 
-                    <button type="buttom" className={styles.playButton}>
+                    <button type="button" className={styles.playButton}>
                         <img src="/play.svg" alt="Tocar"/>
                     </button>
-                    <button type="buttom">
+                    <button type="button">
                         <img src="/play-next.svg" alt="Tocar Pŕoximo"/>
                     </button>
 
-                    <button type="buttom" className={styles.playButton}>
+                    <button type="button" className={styles.playButton}>
                         <img src="/repeat.svg" alt="Repetir"/>
                     </button>
 

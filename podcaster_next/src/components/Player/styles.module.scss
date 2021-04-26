@@ -83,10 +83,10 @@
     margin-top: 2.5rem;
     gap: 1.5rem;
 
-    button{
+    button{ //como será cada botão
         background: transparent;
         border: 0;
-        font-size:0;
+        font-size:0; //centralizar a imagem de centro do botao
         
         &.playButton{
             width: 4rem;
