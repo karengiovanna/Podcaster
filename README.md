@@ -22,7 +22,7 @@ Criando React App | ```npx create-react-app podcastr``` | ![image](https://user-
 Criando projeto com Next | ```cd .. npx create-next-app``` | ![image](https://user-images.githubusercontent.com/49700354/116099775-4d6ad500-a67a-11eb-95fb-08d2915ddc56.png) | ![image](https://user-images.githubusercontent.com/49700354/116100520-ff0a0600-a67a-11eb-8abe-542c3b945682.png)
 Configurando o TypeScript no Next.js | ```bash yarn add typescript @types/react @types/node -D ``` | Trocar a extensão .js por .tsx [Next](https://www.npmjs.com/package/next) | [React](https://www.npmjs.com/package/react)
 Instalando o SASS | ```yarn add sass ``` |  trocar a extensão .css por .scss | import '../styles/global.scss';
-Instalando Json-server | ```yarn add jason-server -D``` | Adicionar no arquivo package.json, script: ```"server": "json-server server.json -w -d 750 -p 3333"```  watchmode: servidor reiniciar cada vez que trocar uma informacao. delay: 750ms para responder. porta 3333| Iniciar o servidor utilizando o comando ```yarn server```
+Instalando [Json-server](https://github.com/typicode/json-server) para converter um arquivo json em uma API fake | ```yarn add jason-server -D``` | Adicionar no arquivo package.json, script: ```"server": "json-server server.json -w -d 750 -p 3333"```  watchmode: servidor reiniciar cada vez que trocar uma informacao. delay: 750ms para responder. porta 3333| Iniciar o servidor utilizando o comando ```yarn server```
 
 
 # Conceitos do React
