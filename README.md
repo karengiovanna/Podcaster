@@ -12,11 +12,41 @@ Uma aplicação web para exibir os podcasts de um canal
 ## Preparando o ambiente
 - Node + NPM;
 - Yarn;
+- React;
 - Visual Studio Code e configurações.
+
+
+Função  | Comando   | Estrutura | Estrutura final
+--------- | ------ | --------- | --------- 
+Criando React App | ```npx create-react-app podcastr``` | ![image](https://user-images.githubusercontent.com/49700354/116099669-2f9d7000-a67a-11eb-873e-9b865260663f.png)
+Criando projeto com Next | ```cd .. npx create-next-app``` | ![image](https://user-images.githubusercontent.com/49700354/116099775-4d6ad500-a67a-11eb-95fb-08d2915ddc56.png) | ![image](https://user-images.githubusercontent.com/49700354/116100520-ff0a0600-a67a-11eb-8abe-542c3b945682.png)
+Configurando o TypeScript no Next.js | ```bash yarn add typescript @types/react @types/node -D ``` | Trocar a extensão .js por .tsx [Next](https://www.npmjs.com/package/next) | [React](https://www.npmjs.com/package/react)
+Instalando o SASS | ```yarn add sass ``` |  trocar a extensão .css por .scss | import '../styles/global.scss';
+
+
+# Conceitos do React
+
+- Componentes: No react tudo é componente, eles são responsáveis por entregar o nosso código HTML ao navegador. Uma boa prática é isolar os nossos elementos em componentes sempre que percebemos que algo esta se repetindo em nossa aplicação. Encapsulamento destes componentes, nos permitem uma melhor manutenção de nosso código, e isolamento de suas funções.
+
+- Propriedades: É uma informação que se passa de um componente para outro.
+
+- Estado: É uma forma de conseguir manipular informações de dentro do componente.
+
 
 Projeto   | Fluxo da aplicação
 --------- | ------
 ![image](https://user-images.githubusercontent.com/49700354/116026478-d9e8a980-a620-11eb-87e6-57bb54723247.png) | ![image](https://user-images.githubusercontent.com/49700354/116026460-d05f4180-a620-11eb-89b5-d4fe55aee709.png)
+
+## O que é o TypeScript?
+
+É um superset, um conjunto de funcionalidade adicionado sobre o javascript. Pode ser tratado como uma linguagem.
+
+O TypeScript permite sabermos qual o formato da informação que estamos chamando, adicionando uma tipagem.
+
+
+### O que é Sass?
+
+"Sass é uma linguagem de folha de estilo compilada para CSS. Ele permite que você use variáveis, regras aninhadas, mixins, funções e muito mais, tudo com uma sintaxe totalmente compatível com CSS. O Sass ajuda a manter grandes folhas de estilo bem organizadas e facilita o compartilhamento de design dentro e entre projetos."
 
 
 ## Conteúdo Técnico do primeiro dia
@@ -54,12 +84,24 @@ Configurando fonte
   * semibold 600
 * fonts.google.com/specimen/inter
   * regular 400
+ 
  Criando estilos globalIsFinite
+ 
  Componente: header
+ 
  Componente: playername
+ 
  Configurando API em JSON
+ 
  Consumindo API Fake na home
- SPA vs 
+ 
+ SPA vs SSR vs SSG
+ 
+ Gerando home de forma estática
+ 
+ Criando build do projeto
+ 
+ Executandso build
 
 
 
