@@ -16,7 +16,9 @@ type Episode = {
   description: string;
   url: string;
   members: string;
-  published_at: string;
+  publishedAt: string;
+  duration: string;
+  durationAsString: string;
  //....
 }
 
@@ -40,7 +42,7 @@ export const getStaticProps: GetStaticProps = async() =>{ //tanto os parâmetros
   const {data} = await api.get('episodes', {
     params:{
       _limit: 12,
-      _sort: 'publishes_at',
+      _sort: 'published_at',
       _order: 'desc'
   }
 })
@@ -50,7 +52,7 @@ export const getStaticProps: GetStaticProps = async() =>{ //tanto os parâmetros
       title: episode.title,
       thumbnail: episode.thumbnail,
       members: episode.members,
-      published_at: format(parseISO(episode.published_at), 'd MMM yy', {locale: ptBR}),
+      publishedAt: format(parseISO(episode.published_at), 'd MMM yy', {locale: ptBR}),
       duration: convertDurationToTimeString(episode.file.duration),
       description: episode.description,
       url: episode.file.url,
@@ -59,7 +61,7 @@ export const getStaticProps: GetStaticProps = async() =>{ //tanto os parâmetros
 
   return{
     props:{ // conceito de propriedades do react
-      episodes: data
+      episodes,
     },
     revalidate: 60*60*8, //60 segundos * 60 minutos * 8 = a cada 8 horas uma nova versão dessa página será criada (um podcast novo a cada 8 horas)
   }
