@@ -4,14 +4,13 @@
 
 import {GetStaticProps} from 'next';
 import { api } from '../services/api';
-// import { api } from '../services/api';
-// import {format, parseISO} from 'date-fns'; //converte data em string para date em js
-// import ptBR from 'date-fns/locale/pt-BR'; // data em português
-// import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
+import {format, parseISO} from 'date-fns'; //converte data em string para date em js
+import ptBR from 'date-fns/locale/pt-BR'; // data em português
+import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 
 
 type Episode = {
-   d: string;
+  id: string;
   title: string;
   thumbnail: string;
   description: string;
@@ -45,11 +44,22 @@ export const getStaticProps: GetStaticProps = async() =>{ //tanto os parâmetros
       _order: 'desc'
   }
 })
-
+  const episodes = data.map(episode =>{
+    return{
+      id: episode.id,
+      title: episode.title,
+      thumbnail: episode.thumbnail,
+      members: episode.members,
+      published_at: format(parseISO(episode.published_at), 'd MMM yy', {locale: ptBR}),
+      duration: convertDurationToTimeString(episode.file.duration),
+      description: episode.description,
+      url: episode.file.url,
+    };
+  })
 
   return{
     props:{ // conceito de propriedades do react
-      episode: data
+      episodes: data
     },
     revalidate: 60*60*8, //60 segundos * 60 minutos * 8 = a cada 8 horas uma nova versão dessa página será criada (um podcast novo a cada 8 horas)
   }
