@@ -50,14 +50,11 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps) { //Homep
                       objectFit="cover"
                     /> 
                     
-
                     <div className={styles.episodeDetails}>
-
-                      <a href="">{episode.title}</a>
-                      <p>{episode.members}</p>
-                      <span>{episode.publishedAt}</span>
-                      <span>{episode.durationAsString}</span>
-
+                        <a href="">{episode.title}</a>
+                        <p>{episode.members}</p>
+                        <span>{episode.publishedAt}</span>
+                        <span>{episode.durationAsString}</span>
                     </div>
 
                     <button type ="button">

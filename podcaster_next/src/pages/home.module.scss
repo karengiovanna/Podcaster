@@ -1,7 +1,7 @@
-.homePage{
+.homepage{
         padding: 0 4rem;
         height: calc(100vh - 6.5rem); //calculo para ter o tamanho todo que sobra da tela retirando o cabeçalho
-        overflow-y: scroll;
+        overflow-y: scroll; //vai colcoar barra de rolagem caso passe daquela altura
         
         h2{
                 margin-top: 3rem;
@@ -13,15 +13,15 @@
         ul{
                 list-style: none;
                 display: grid;
-                grid-template-columns: repeat(2,1fr);
-                gap: 1.5rem;
+                grid-template-columns: repeat(2,1fr); //duas vezes 1fr, duas colunas com o mesmo tamanho
+                gap: 1.5rem; //espaçamento entre os dois
 
                 li{
                         background: var(--white);
                         border: 1px solid var(--gray-100);
                         padding: 1.25rem;
                         border-radius: 1.5rem;
-                        position: relative;
+                        position: relative; //terá um botao para ser alinhado com o position absolute
 
                         display: flex;
                         align-items: center;
@@ -29,14 +29,14 @@
                         img{
                                 width: 6rem;
                                 height: 6rem;
-                                border-radius:1rem;
+                                border-radius: 1rem;
                         }
 
-                        .episodeDetails{
+                        .episodeDetails{ //classe encadeada dentro do li
                                 flex:1;
                                 margin-left: 1rem;
 
-                                a{
+                                a{ // link e titulo
                                         display: block;
                                         color: var(--gray-800);
                                         font-family: Lexend, sans-serif;
@@ -44,37 +44,53 @@
                                         text-decoration: none;
                                         line-height: 1.4rem;
 
-                                &:hover{
-                                        text-decoration: underline;
-                                }
-
+                                        &:hover{
+                                                text-decoration: underline;
+                                        }
                                 }
                                 
                                 p{
                                         font-size: 0.875rem;
                                         margin-top: 0.5rem;
-                                        max-width: 70%;
+                                        max-width: 70%; // pois os outros 30% serao destinoados ao botão
                                         white-space: nowrap; // nao quebrar linha
-                                        overflow: hidden; // o que ultrapassar na linha fica invisível
-                                        text-overflow: ellipse; //colocar retissencias quando ultrapassar o numero de caracteres
+                                        overflow: hidden; // o que ultrapassar dos 70% de largura não ficará visível
+                                        text-overflow: ellipse; //colocar reticencias quando ultrapassar o numero de caracteres
                                 }
 
                                 span{
                                         display: inline-block;
                                         margin-top: 0.5rem;
                                         font-size: 0.875rem;
+                                        
+                                        
+                                        &:last-child{ // segundo span
+                                                //first child só funciona se o span for o  primeiro elemento dentro do contexto dele (index.tsx)
+                                                margin-left: 0.5rem;
+                                                padding-left:0.5rem;
+                                                position: relative;
+                                                
+                                                // bolinha entre 
+                                                &::before{// quero adicionar entre os dois, que deve estar antes do segundo span
+                                                        content:  ""    ; //todo after precisa ter um content, mesmo que vazio  
+                                                        width: 4px;
+                                                        height:4px;
+                                                        border-radius: 2px; //para ficar totalmente arredontato
+                                                        background: #000;
+                                                        position: absolute;
+                                                        left:0;
+                                                        top: 50%;
+                                                        transform: translate(-50%, -50%); //move dois pixels pra cima e pra esquerda, para ficar centralizado
 
-                                &:first-child{
-                                        margin-right: 0.5rem;
-                                        padding-right:0.5rem;
-                                        position: relative;
-                                }
+                                                }
+                                        }
+
                                 }
                 
-                }
+                        }
 
                 }
 
         }
 
-        }
+}
