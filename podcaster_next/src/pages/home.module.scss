@@ -72,20 +72,49 @@
                                                 
                                                 // bolinha entre 
                                                 &::before{// quero adicionar entre os dois, que deve estar antes do segundo span
-                                                        content:  ""    ; //todo after precisa ter um content, mesmo que vazio  
+                                                        content:""; //todo after precisa ter um content, mesmo que vazio  
                                                         width: 4px;
                                                         height:4px;
                                                         border-radius: 2px; //para ficar totalmente arredontato
-                                                        background: #000;
+                                                        background: #ddd;
                                                         position: absolute;
                                                         left:0;
                                                         top: 50%;
-                                                        transform: translate(-50%, -50%); //move dois pixels pra cima e pra esquerda, para ficar centralizado
+                                                        transform: translate(-50%, -50%); //deslocar esse elemento 2 pixels pra cima e pra esquerda, para ficar centralizado
 
                                                 }
                                         }
 
                                 }
+
+
+
+
+                                }
+                                button{
+                                        position: absolute;
+                                        right: 2rem;
+                                        bottom: 2rem;
+
+                                        width: 2.5rem;
+                                        height: 2.5rem;
+
+                                        background: var(--white);border: 1px solid var (--gray-100);
+                                        border-radius: 0.675rem;
+                                        font-size: 0;
+
+                                        transition: filter 0.2s; // fazer o filtro de passar o mouse por cima ter transição
+
+                                        img{
+                                                width: 1.5rem;
+                                                height: 1.5rem;
+
+                                        }
+
+
+                                        &:hover{ //escurecer o botão quando o usuário passar o mouse por cima
+                                                filter: brightness(0.95);
+                                        }
                 
                         }
 
