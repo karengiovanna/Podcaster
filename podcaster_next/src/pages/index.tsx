@@ -87,7 +87,8 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps) { //Homep
                   {allEpisodes.map(episode =>{
                     return(
                       <tr key={episode.id}>
-                          <td>
+                          <td style={{width: 72}}> {// para qe o tamanho da imagem fique fixa e o resto (titulo, membros) se adapte
+                                                    }
                             <Image
                               width={120}
                               height = {120}
@@ -102,7 +103,8 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps) { //Homep
                           </td>
 
                           <td>{episode.members}</td>
-                          <td>{episode.publishedAt}</td>
+                          <td style={{width: 100}}>{episode.publishedAt}</td> {// css inline pode ser passado por objeto dentro do código js "{}"
+                                                                              }
                           <td>{episode.durationAsString}</td>
                           <td>
                             <button type="button">
