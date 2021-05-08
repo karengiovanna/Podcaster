@@ -1,3 +1,10 @@
+export default function Episode(){
+        return(
+                <h1>Hello World</h1>
+        )
+}
+
+/*
 import {GetStaticPaths, GetStaticProps} from 'next';
 import {api} from '../../services/api';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
@@ -16,7 +23,7 @@ type Episode ={
         url: string;
         publishedAt: string;
         description: string; //aqui tem description
-};
+}
 
 type EpisodeProps ={
         episode: Episode;
@@ -63,4 +70,4 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
                 },
                 revalidate: 60*60*24, //atualizar a cada 24 horas
         }
-}
+*/
