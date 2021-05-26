@@ -18,13 +18,17 @@ Uma aplicação web para exibir os podcasts de um canal
   * Com o surgimento de equipamentos que não utilizam HTML, tais quais, aplicações mobile e desktop, e para uma experiencia melhor para o usuário que esta ligando com a aplicação desenvolveu-se uma forma chamada SPA - Single Page Application (Aplicação de uma unica página). Quando o backend passa a não retornar mais o html, mas sim os conteúdos críticos em formato JSON. Começou a ser utilizado então a estrutura de dados JSON (Javascript Object Notation) para retornar apenas os dados. Logo a responsável pela parte de visualização da nossa aplicação não é mais o backend e sim o frontend, que determina como os dados serão visualizados. No caso da web serão dados html, css e js. O REACT, junto com o browser, vai fazer requisições e pegar os dados JSON vindo do BAckEnd e transformar em HTML. É chamada de SPA pois faz o carregamento dos dados, mas não um carregamento da tela: uma única página que muda o conteúdo. 
 
 ## Fluxo de uma API dentro do universo React
-  React tem problema com a indexação da página, ou seja, não haverá a possibilidade da página aparecer em buscar do Google, por exemplo.
-  
+  React tem problema com a indexação da página, ou seja, não haverá a possibilidade da página aparecer em buscar do Google, por exemplo.Por isso utilizamos o Gatsby ou NEXTjs.
+  Os dados em JSON não são devolvidos diretamente para o browser, é enviado para o servidor do NEXT para converter os dados em HTML ou outra estrutura de dados que estamos utilizando. No SSR a criação da interface está ocorrendo pelo lado do servidor, mas nesse caso temos dois servidores: um para criar a interface e outro para API
+
 
 ## Iniciando com o react
   * Há duas formas comuns de criar um projeto REact: 
     * Utilizando o pacote create react app desenvolvido pela equipe do React Facebook que traz todas as dependencias nescessárias para que o navegador insterprete as funcionalidades que só existem no ecossistema dessas ferramentas. WebPack e Babel
     * Next, substituto do create react app. Tem mais funcionalidades, pois além do ambiente pronto para sairmos codando, traz também opiniões e ferramentas a mais.
+
+## Static Site Generation
+  * A home page só é atualizada a cada periodo determinado, portanto o banco de dados não é requisitado a cada acesso de um usuário. O HTML é salvo para ser mais performático, logo a página vai ser a mesma para qualquer pessoa que utilizar durante o período.
 
 ## Dicas para Windows 
   Não salve a pasta no diretório :\C
@@ -37,6 +41,16 @@ Uma aplicação web para exibir os podcasts de um canal
   * yarn start (abre o navegador automaticamente com o projeto rodando)
 O create react app traz as estruturas prontas, como um template e podemos deletar o que não vamos utilizar (readme, src: deixa index e app, /public deixa o index.html. No indexhtml remove tudo ate viewport)
 
+## Iniciando projeto Next react
+  * Dentro de uma nova pasta: 
+  * npx create-next-app nomedoprojeto
+  * cd nomedoprojeto
+  *  yarn dev  
+  * Podemos utilizar next em todos os projetos react e é recomendado para páginas que vão precisar de indexação
+  * Adicionando TypeScript: yarn add typescript @types/react @types/node -D
+  * yarn add sass
+  * yarn add date-fns
+  
 Função  | Comando   | Estrutura | Estrutura final
 --------- | ------ | --------- | --------- 
 Criando React App | ```npx create-react-app podcastr``` | ![image](https://user-images.githubusercontent.com/49700354/116099669-2f9d7000-a67a-11eb-873e-9b865260663f.png)
