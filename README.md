@@ -1,20 +1,41 @@
-# Trilha REACT e Next.JS
-Repositório do evento Next Level Week realizado pela Rocketseat. Trilha de React e Next.js
-
 ## Trilha de React
-Aprenderemos a criar aplicações front-end web utilizando a biblioteca React que tem como objetivo a criação de interfaces altamente interativas. O react traz uma forma padronizada de forma que seja fácil manipular a interface de acordo com as ações do usuário.
+Aprendendo a criar aplicações front-end web utilizando a biblioteca React que tem como objetivo a criação de interfaces altamente interativas. O react traz uma forma padronizada de forma que seja fácil manipular a interface de acordo com as ações do usuário.
 
 ## Apresentação do projeto
 Uma aplicação web para exibir os podcasts de um canal
 
 ![image](https://user-images.githubusercontent.com/49700354/115946266-6e72d080-a496-11eb-8581-7a9f5b6f830a.png)
 
-## Preparando o ambiente
-- Node + NPM;
-- Yarn;
-- React;
-- Visual Studio Code e configurações.
+## Ambiente de desenvolvimento: 
 
+* NODE (permite executarmos o projeto enquanto estamos em desenvolvimento,vem com npm)
+* YARN (é mais performático do que o mpn que já vem instalado com o node)
+* Visual Studio Code.
+  
+## Fluxo de uma API (Utilizamos um API fictício)
+  * Antigamente era comum utilizar Server Side Redering que tornava o servidor(backend) responsável pela regra de negócio, acesso ao banco, comunicação com serviços externos, pagamento, autenticação e visualização da aplicação (pattern MVP) e por retornar todo html da página 
+* 
+  * Com o surgimento de equipamentos que não utilizam HTML, tais quais, aplicações mobile e desktop, e para uma experiencia melhor para o usuário que esta ligando com a aplicação desenvolveu-se uma forma chamada SPA - Single Page Application (Aplicação de uma unica página). Quando o backend passa a não retornar mais o html, mas sim os conteúdos críticos em formato JSON. Começou a ser utilizado então a estrutura de dados JSON (Javascript Object Notation) para retornar apenas os dados. Logo a responsável pela parte de visualização da nossa aplicação não é mais o backend e sim o frontend, que determina como os dados serão visualizados. No caso da web serão dados html, css e js. O REACT, junto com o browser, vai fazer requisições e pegar os dados JSON vindo do BAckEnd e transformar em HTML. É chamada de SPA pois faz o carregamento dos dados, mas não um carregamento da tela: uma única página que muda o conteúdo. 
+
+## Fluxo de uma API dentro do universo React
+  React tem problema com a indexação da página, ou seja, não haverá a possibilidade da página aparecer em buscar do Google, por exemplo.
+  
+
+## Iniciando com o react
+  * Há duas formas comuns de criar um projeto REact: 
+    * Utilizando o pacote create react app desenvolvido pela equipe do React Facebook que traz todas as dependencias nescessárias para que o navegador insterprete as funcionalidades que só existem no ecossistema dessas ferramentas. WebPack e Babel
+    * Next, substituto do create react app. Tem mais funcionalidades, pois além do ambiente pronto para sairmos codando, traz também opiniões e ferramentas a mais.
+
+## Dicas para Windows 
+  Não salve a pasta no diretório :\C
+  * Utilize o terminal como administrador e dê preferencia para PowerShell
+
+## Iniciando o projeto react
+  * dentro de uma pasta nova:
+  * npx create-react-app nomedoprojeto
+  * cd nomedoprojeto
+  * yarn start (abre o navegador automaticamente com o projeto rodando)
+O create react app traz as estruturas prontas, como um template e podemos deletar o que não vamos utilizar (readme, src: deixa index e app, /public deixa o index.html. No indexhtml remove tudo ate viewport)
 
 Função  | Comando   | Estrutura | Estrutura final
 --------- | ------ | --------- | --------- 
@@ -27,9 +48,9 @@ Instalando [Json-server](https://github.com/typicode/json-server) para converter
 
 # Conceitos do React
 
-- Componentes: No react tudo é componente, eles são responsáveis por entregar o nosso código HTML ao navegador. Uma boa prática é isolar os nossos elementos em componentes sempre que percebemos que algo esta se repetindo em nossa aplicação. Encapsulamento destes componentes, nos permitem uma melhor manutenção de nosso código, e isolamento de suas funções.
+- Componentes: Uma boa prática é isolar(encapsular) os nossos elementos em componentes(funções) sempre que percebemos que algo esta se repetindo em nossa aplicação.
 
-- Propriedades: É uma informação que se passa de um componente para outro.
+- Propriedades: É uma informação que se passa de um componente para outro(atributo no html).
 
 - Estado: É uma forma de conseguir manipular informações de dentro do componente.
 
@@ -38,30 +59,13 @@ Projeto   | Fluxo da aplicação
 --------- | ------
 ![image](https://user-images.githubusercontent.com/49700354/116026478-d9e8a980-a620-11eb-87e6-57bb54723247.png) | ![image](https://user-images.githubusercontent.com/49700354/116026460-d05f4180-a620-11eb-89b5-d4fe55aee709.png)
 
-## O que é o TypeScript?
 
-É um superset, um conjunto de funcionalidade adicionado sobre o javascript. Pode ser tratado como uma linguagem.
+* Iniciando com React
+  Conceitos do react: 
+      * componente
+      * estado
+      * propriedade (passar do componente pai para o componente filho)
 
-O TypeScript permite sabermos qual o formato da informação que estamos chamando, adicionando uma tipagem.
-
-
-### O que é Sass?
-
-"Sass é uma linguagem de folha de estilo compilada para CSS. Ele permite que você use variáveis, regras aninhadas, mixins, funções e muito mais, tudo com uma sintaxe totalmente compatível com CSS. O Sass ajuda a manter grandes folhas de estilo bem organizadas e facilita o compartilhamento de design dentro e entre projetos."
-
-
-## Conteúdo Técnico do primeiro dia
-
-Ambiente de desenvolvimento
-
-Fluxo de uma API (Utilizamos um API fictício)
-
-Iniciando com React
-
-Conceitos do react: 
-    * componente
-    * estado
-    * propriedade (passar do componente pai para o componente filho)
 
 SEO com React (tempo de cada mudança)
 
