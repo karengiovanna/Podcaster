@@ -45,11 +45,15 @@ O create react app traz as estruturas prontas, como um template e podemos deleta
   * Dentro de uma nova pasta: 
   * npx create-next-app nomedoprojeto
   * cd nomedoprojeto
-  *  yarn dev  
+  * yarn dev  
   * Podemos utilizar next em todos os projetos react e é recomendado para páginas que vão precisar de indexação
   * Adicionando TypeScript: yarn add typescript @types/react @types/node -D
   * yarn add sass
   * yarn add date-fns
+  * yarn add json-server -D
+  * "server": "json-server server.json -w -d 750 -p 3333"
+  * yarn build  
+  * yarn start para rodar em produção
   
 Função  | Comando   | Estrutura | Estrutura final
 --------- | ------ | --------- | --------- 
