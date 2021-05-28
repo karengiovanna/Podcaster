@@ -54,6 +54,7 @@ O create react app traz as estruturas prontas, como um template e podemos deleta
   * "server": "json-server server.json -w -d 750 -p 3333"
   * yarn build  
   * yarn start para rodar em produção
+  * yarn add axios
   
 Função  | Comando   | Estrutura | Estrutura final
 --------- | ------ | --------- | --------- 
