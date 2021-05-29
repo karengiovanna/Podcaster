@@ -1,3 +1,116 @@
 .homepage{
-    
+    padding: 0 4rem;
+    height: calc(100vh - 6.5rem); // altura total - tamanho do header = tamanho que sobra da tela exceto cabeçalho
+    overflow-y: scroll; //o scroll só vai funcionar na homepage, não no header nem no player
+
+    h2{
+        margin-top: 3rem;
+        margin-bottom:1.5rem;
+    }
+}
+
+.latestEpisodes{
+    ul{
+        list-style: none; //tirar a bolinha do tópico
+        display: grid; //colunas
+        grid-template-columns: repeat(2, 1fr); //2 tamanhos iguais
+        gap: 1.5rem;
+
+        li{
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            padding: 1.25rem;
+            border-radius: 1.5rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            img{
+                width: 6rem;
+                height: 6rem;
+                border-radius: 1rem;
+            }
+
+            .episodeDetails{
+                flex: 1;
+                margin-left: 1rem;
+
+                a{
+                    display: block;
+                    color: var(--gray-800);
+                    font-weight: 600;
+                    font-family: Lexend, sans-serif;
+                    text-decoration: none;
+                    line-height: 1.4rem;
+
+                    &:hover{
+                        text-decoration: underline; //quando passar o mouse por cima
+                    }
+                }
+
+                p{ //para o texto não ficar em cima do botão
+                    font-size: 0.875rem;
+                    margin-top: 0.5rem;
+                    max-width: 70%;
+                    white-space: nowrap;
+                    overflow: hidden; //esconder o texto que ultrapassar o tamanho especificado
+                    text-overflow: ellipsis; //colocar retissencias quando o texto ultrapassar o tamanho
+
+                }
+                span{ //data e duração do podcast
+                    display: inline-block;
+                    margin-top: 0.5rem;
+                    font-size: 0.875rem;
+
+                    &:last-child{
+                        margin-left: 0.25rem;
+                        padding-left: 0.25rem;
+                        position: relative;
+
+                        &::before{
+                            content: "";
+                            width: 4px;
+                            height:4px;
+                            border-radius: 2px;
+                            background: #000;
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+
+                        }
+
+                    }
+
+                }
+
+            }
+            button{
+                position: absolute;
+                right: 2rem;
+                bottom: 2rem;
+
+                width: 2.5rem;
+                height: 2.5rem;
+                background:var(--white);
+                border: 1px solid var(--gray-100);
+                border-radius: 0.675rem;
+                font-size: 0;
+
+                transition: filter 0.2s; //ao passar o cursor por cima do botão
+
+                img{
+                    width: 1.5rem;
+                    height: 1.5rem;
+
+                }
+
+                //escurecer o botão quando passar cursos por cima
+                &:hover{
+                    filter: brightness(0.95);
+                }
+            }
+
+        }
+    }
 }
