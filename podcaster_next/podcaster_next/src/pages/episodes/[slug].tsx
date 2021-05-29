@@ -5,6 +5,7 @@ import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 import styles from './episode.module.scss';
+import Link from 'next/link';
 
 type Episode = {
     id: string;
@@ -33,9 +34,12 @@ export default function Episode({episode}: EpisodeProps){
     return(
         <div className={styles.episode}>
             <div className={styles.thumbnailContainer}>
+                
+                <Link href="/">
                 <button type="button"> 
                     <img src="/arrow-left.svg" alt="Voltar"/> 
                 </button>
+                </Link>
 
                 <Image 
                     width={700} 
