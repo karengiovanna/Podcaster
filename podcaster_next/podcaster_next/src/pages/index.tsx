@@ -5,6 +5,7 @@ import {format, parseISO} from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 import styles from './home.module.scss';
+import Link from 'next/link';
 
 type Episode ={
   id: string;
@@ -13,7 +14,6 @@ type Episode ={
   publishedAt: string;
   durationAsString: string;
   url:string;
-  description: string;
   thumbnail: string;
   duration:string;
 
@@ -45,8 +45,9 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps) {
                   />
 
                 <div className={styles.episodeDetails}>
-
-                  <a href="">{episode.title}</a>
+                  <Link href={`/episodes/${episode.id}`}>
+                    <a>{episode.title}</a>
+                  </Link>
                   <p>{episode.members}</p>
                   <span>{episode.publishedAt}</span>
                   <span>{episode.durationAsString}</span>
@@ -90,7 +91,9 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps) {
                   </td>
 
                   <td>
-                    <a href="">{episode.title}</a>
+                    <Link href={`/episodes/${episode.id}`}>
+                      <a>{episode.title}</a>
+                    </Link>
                   </td>
 
                   <td>{episode.members}</td>
@@ -131,7 +134,6 @@ export const getStaticProps: GetStaticProps = async() => {
       members: episode.members,
       publishedAt: format(parseISO(episode.published_at), 'd MMM yy',{locale: ptBR}),
       thumbnail: episode.thumbnail,
-      description: episode.description,
       url: episode.file.url,
       duration: Number(episode.file.duration),
       durationAsString: convertDurationToTimeString(Number(episode.file.duration)),
