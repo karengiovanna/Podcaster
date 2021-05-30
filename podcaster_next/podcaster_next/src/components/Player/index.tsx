@@ -12,12 +12,13 @@ export default function Player(){
         <div className = {styles.playerContainer}>
             <header>
                 <img src="/playing.svg" alt="Tocando agora"/>
-                <strong>Tocando agora{episode?.title}</strong>
+                <strong>Tocando agora</strong>
             </header>
 
             
-            {episode ? (
-                <div className={styles.currentEpisode}>
+            {episode ? ( /* se tiver um episode, ou seja sendo episodio uma variavel nao nula) */
+                /*exibe o episodio */
+                <div className={styles.currentEpisode}> 
                     <Image
                         width={592}
                         height={592}
@@ -28,9 +29,10 @@ export default function Player(){
                         <strong>{episode.title}</strong>
                         <span>{episode.members}</span>
                 </div>
-            ) : (
+            ) : ( /* caso não tenha um episodio tocando, variavel episode estiver nula/*/
+                /* o player aparecerá vazio*/
                 <div className={styles.emptyPlayer}>
-                <strong>Selecione um podcast para ouvir</strong>
+                    <strong>Selecione um podcast para ouvir</strong>
                 </div>
             )}
 
