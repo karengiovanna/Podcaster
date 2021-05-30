@@ -11,8 +11,12 @@ type Episode = {
 type PlayerContextData ={
     episodeList: Array<Episode>;
     currentEpisodeIndex: number;
+    /* informação para saber se o episódio selecionado está tocando ou não*/
+    isPlaying: boolean;
     //play é uma função sem retorno
     play: (episode: Episode) => void;
+    togglePlay: () => void;
+
 };
 
 

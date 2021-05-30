@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { PlayerContext } from '../../contexts/PlayerContext';
 import styles from './styles.module.scss';
 import Image from 'next/image';
@@ -8,7 +8,13 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css'
 
 export default function Player(){
-    const {episodeList, currentEpisodeIndex} = useContext(PlayerContext)
+    const audioRef = useRef<HTMLAudioElement>(null);
+
+    const {episodeList, 
+        currentEpisodeIndex, 
+        isPlaying,
+        togglePlay
+        } = useContext(PlayerContext)
 
     const episode = episodeList[currentEpisodeIndex]
 
@@ -61,7 +67,8 @@ export default function Player(){
                     {/* se houver um episódio tocando e  */}
                     {episode && (
                         <audio
-                            src={episode.url}
+                            src = {episode.url}
+                            ref = {audioRef}
                             autoPlay /*assim que houver um episódio começa a tocar*/
                         />
                     )}
@@ -76,9 +83,16 @@ export default function Player(){
                     <button type = "button" disabled={!episode}>
                         <img src="/play-previous.svg" alt="Tocar anterior"/> 
                     </button>
-
-                    <button type = "button" className={styles.playButton} disabled={!episode}>
-                        <img src="/play.svg" alt="Tocar"/> 
+                        
+                    <button type = "button" 
+                        className={styles.playButton} 
+                        disabled={!episode}
+                        onClick={togglePlay}
+                        >
+                        { isPlaying 
+                            ? <img src="/pause.svg" alt="Pausar"/> 
+                            : <img src="/play.svg" alt="Tocar"/> 
+                        }
                     </button>
 
                     <button type = "button" disabled={!episode}>
