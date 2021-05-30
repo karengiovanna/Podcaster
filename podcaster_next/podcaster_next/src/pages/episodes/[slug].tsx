@@ -6,6 +6,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 import styles from './episode.module.scss';
 import Link from 'next/link';
+import {useRouter} from 'next/router';
 
 type Episode = {
     id: string;
@@ -15,7 +16,7 @@ type Episode = {
     durationAsString: string;
     url:string;
     thumbnail: string;
-    duration:string;
+    duration: string;
     description: string;
 };
 
@@ -24,13 +25,31 @@ type EpisodeProps ={
 }
 
 export const getStaticPaths : GetStaticPaths = async() =>{
+    const {data} = await api.get('episodes', {
+        params:{
+            _limit: 2,
+            _sort: 'published_at',
+            _order: 'desc'
+        }
+    })
+
+    const paths = data.map(episode=> {
+        return{
+            params:{
+                slug: episode.id
+            }
+        }
+    })
+
     return{
-        paths: [],
-        fallback: 'blocking',
+        paths,
+        // incremental static regenaration
+        fallback: 'blocking', // a tela só vai aparecer quando o conteúdo já tiver sido gerado
     }
 }
 
 export default function Episode({episode}: EpisodeProps){
+  
     return(
         <div className={styles.episode}>
             <div className={styles.thumbnailContainer}>
@@ -66,6 +85,7 @@ export default function Episode({episode}: EpisodeProps){
     )
 }
 
+//é necessário utilizar em toda rota que tiver {} 
 export const getStaticProps: GetStaticProps =async (ctx) =>{
     //dentro do contexto esta onde quero buscar os dados
     const {slug} = ctx.params;
