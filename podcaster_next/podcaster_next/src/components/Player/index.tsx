@@ -3,6 +3,10 @@ import { PlayerContext } from '../../contexts/PlayerContext';
 import styles from './styles.module.scss';
 import Image from 'next/image';
 
+/* biblioteca para a barra de progresso */
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css'
+
 export default function Player(){
     const {episodeList, currentEpisodeIndex} = useContext(PlayerContext)
 
@@ -41,30 +45,47 @@ export default function Player(){
                     <span>00:00</span>
 
                     <div className = {styles.slider}>
-                        <div className={styles.emptySlider}/>
+                        {/* se tiver tocando alguma coisa o trackstyle vai mudar a linha do progresso que já aconteceu*/}
+                        {episode ? (
+                            <Slider
+                                trackStyle={{backgroundColor: '#04d361'}}
+                                railStyle={{backgroundColor: '#9f75ff'}} /* cor que ainda nao sofreu progresso */
+                                handleStyle={{borderColor: '#04d361', borderWidth: 4}} /* bolinha de progresso */
+                            />
+                        ) : (
+                            <div className={styles.emptySlider}/>
+                        ) }
                     </div>
                     <span>00:00</span>
+
+                    {/* se houver um episódio tocando e  */}
+                    {episode && (
+                        <audio
+                            src={episode.url}
+                            autoPlay /*assim que houver um episódio começa a tocar*/
+                        />
+                    )}
 
                 </div>
 
                 <div className={styles.buttons}>
-                    <button type = "button">
+                    <button type = "button" disabled={!episode} >
                         <img src="/shuffle.svg" alt="Embaralhar"/> 
                     </button>
 
-                    <button type = "button">
+                    <button type = "button" disabled={!episode}>
                         <img src="/play-previous.svg" alt="Tocar anterior"/> 
                     </button>
 
-                    <button type = "button" className={styles.playButton}>
+                    <button type = "button" className={styles.playButton} disabled={!episode}>
                         <img src="/play.svg" alt="Tocar"/> 
                     </button>
 
-                    <button type = "button">
+                    <button type = "button" disabled={!episode}>
                         <img src="/play-next.svg" alt="Tocar seguinte"/> 
                     </button>
 
-                    <button type = "button">
+                    <button type = "button" disabled={!episode}>
                         <img src="/repeat.svg" alt="Repetir"/> 
                     </button>
 
