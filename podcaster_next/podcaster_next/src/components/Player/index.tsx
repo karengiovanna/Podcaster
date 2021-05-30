@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useEffect } from 'react';
 import { PlayerContext } from '../../contexts/PlayerContext';
 import styles from './styles.module.scss';
 import Image from 'next/image';
@@ -14,8 +14,21 @@ export default function Player(){
         currentEpisodeIndex, 
         isPlaying,
         togglePlay
-        } = useContext(PlayerContext)
+    } = useContext(PlayerContext)
 
+
+    /* toda vez que o isPlaying tiver seu valor mudado quero que alguma coisa aconteça*/
+    useEffect(() => {
+        if (!audioRef.current)
+            return; /* se não tiver algo tocando no audioref.current ele não retorna nada*/
+        
+        if (isPlaying) {
+            audioRef.current.play();
+        } else{
+            audioRef.current.pause();
+        }
+        }, [isPlaying])
+    
     const episode = episodeList[currentEpisodeIndex]
 
     return(
