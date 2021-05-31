@@ -13,7 +13,8 @@ export default function Player(){
     const {episodeList, 
         currentEpisodeIndex, 
         isPlaying,
-        togglePlay
+        togglePlay,
+        setPlayingState
     } = useContext(PlayerContext)
 
 
@@ -83,6 +84,8 @@ export default function Player(){
                             src = {episode.url}
                             ref = {audioRef}
                             autoPlay /*assim que houver um episódio começa a tocar*/
+                            onPlay={() => setPlayingState(true)} /* quando o usuário setar 1 no onPlay (pelo teclado)*/
+                            onPause={() => setPlayingState(false)}
                         />
                     )}
 

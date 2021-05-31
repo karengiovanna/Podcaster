@@ -24,8 +24,13 @@ function MyApp({ Component, pageProps }) {
 
   }
 
+  /* para saber quando foram utilizadas teclas para dar pause ou reproduzir*/
+  function setPlayingState(state : boolean){
+    setIsPlaying(state);
+  }
+
   return (
-    <PlayerContext.Provider value={{episodeList, currentEpisodeIndex, play, isPlaying, togglePlay}}>
+    <PlayerContext.Provider value={{episodeList, currentEpisodeIndex, play, isPlaying, togglePlay, setPlayingState}}>
       <div className= {styles.appWrapper}> 
         <main>
           <Header />
