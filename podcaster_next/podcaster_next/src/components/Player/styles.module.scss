@@ -24,7 +24,7 @@
 
     footer{
         align-self: stretch;
-        &.empty{
+        &.empty .Progress{
             opacity: 0.5;
         }
     }
@@ -106,6 +106,7 @@
 
         &:disabled{ /* quando não houver podcast tocando*/
             cursor: default; /* o cursor vai indicar que não pode clicar */
+            opacity: 0.5;
         }
 
         /* passar o mouse por cima de um botao que não está desabilitado*/

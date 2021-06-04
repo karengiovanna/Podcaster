@@ -1,11 +1,11 @@
-import { useContext, useRef, useEffect } from 'react';
-import { PlayerContext } from '../../contexts/PlayerContext';
+import { useRef, useEffect } from 'react';
 import styles from './styles.module.scss';
 import Image from 'next/image';
 
 /* biblioteca para a barra de progresso */
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css'
+import { usePlayer } from '../../contexts/PlayerContext';
 
 export default function Player(){
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -20,7 +20,7 @@ export default function Player(){
         playPrevious,
         hasNext,
         hasPrevious
-    } = useContext(PlayerContext)
+    } = usePlayer();
 
 
     /* toda vez que o isPlaying tiver seu valor mudado quero que alguma coisa aconteça*/

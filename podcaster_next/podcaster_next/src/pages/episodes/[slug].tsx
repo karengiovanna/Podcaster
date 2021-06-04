@@ -6,7 +6,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 import styles from './episode.module.scss';
 import Link from 'next/link';
-import {useRouter} from 'next/router';
+import { usePlayer } from '../../contexts/PlayerContext';
 
 type Episode = {
     id: string;
@@ -16,7 +16,7 @@ type Episode = {
     durationAsString: string;
     url:string;
     thumbnail: string;
-    duration: string;
+    duration: number;
     description: string;
 };
 
@@ -49,7 +49,8 @@ export const getStaticPaths : GetStaticPaths = async() =>{
 }
 
 export default function Episode({episode}: EpisodeProps){
-  
+    const { play } = usePlayer();
+    
     return(
         <div className={styles.episode}>
             <div className={styles.thumbnailContainer}>
@@ -67,7 +68,7 @@ export default function Episode({episode}: EpisodeProps){
                     objectFit="cover"
                 />
 
-                <button type ="button">
+                <button type ="button" onClick={() => play(episode)}>
                     <img src="/play.svg" alt = "Tocar Episódio"/>
                 </button>
             </div>
