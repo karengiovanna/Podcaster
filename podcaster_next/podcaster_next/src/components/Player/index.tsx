@@ -19,7 +19,9 @@ export default function Player(){
         playNext,
         playPrevious,
         hasNext,
-        hasPrevious
+        hasPrevious,
+        isLooping,
+        toggleLoop,
     } = usePlayer();
 
 
@@ -89,6 +91,7 @@ export default function Player(){
                             src = {episode.url}
                             ref = {audioRef}
                             autoPlay /*assim que houver um episódio começa a tocar*/
+                            loop={isLooping}
                             onPlay={() => setPlayingState(true)} /* quando o usuário setar 1 no onPlay (pelo teclado)*/
                             onPause={() => setPlayingState(false)}
                         />
@@ -120,7 +123,12 @@ export default function Player(){
                         <img src="/play-next.svg" alt="Tocar seguinte"/> 
                     </button>
 
-                    <button type = "button" disabled={!episode}>
+                    <button 
+                        type = "button" 
+                        disabled={!episode}
+                        onClick = {toggleLoop}
+                        className={isLooping ? styles.IsActive : ''}
+                    >
                         <img src="/repeat.svg" alt="Repetir"/> 
                     </button>
 

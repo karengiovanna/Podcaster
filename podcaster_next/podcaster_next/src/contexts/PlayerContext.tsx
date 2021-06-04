@@ -22,6 +22,8 @@ type PlayerContextData ={
     playPrevious: () => void;
     hasNext: boolean;
     hasPrevious: boolean;
+    isLooping: boolean;
+    toggleLoop: () => void,
 
 };
 
@@ -35,6 +37,7 @@ export function PlayerContextProvider({children}: PlayerContextProviderProps){
     const [episodeList, setEpisodeList] = useState([]);
     const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isLooping, setIsLooping] = useState(false);
   
     function play(episode: Episode){
       setEpisodeList([episode])
@@ -54,6 +57,10 @@ export function PlayerContextProvider({children}: PlayerContextProviderProps){
     function togglePlay(){
       setIsPlaying(!isPlaying);
   
+    }
+
+    function toggleLoop(){
+        setIsLooping(!isLooping);
     }
   
     /* para saber quando foram utilizadas teclas para dar pause ou reproduzir*/
@@ -93,7 +100,9 @@ export function PlayerContextProvider({children}: PlayerContextProviderProps){
                 togglePlay, 
                 setPlayingState,
                 hasNext, 
-                hasPrevious
+                hasPrevious,
+                isLooping,
+                toggleLoop,
             }}
         >
             {children}

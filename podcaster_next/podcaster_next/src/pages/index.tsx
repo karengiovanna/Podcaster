@@ -6,8 +6,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 import styles from './home.module.scss';
 import Link from 'next/link';
-import { useContext } from 'react';
-import { PlayerContext } from '../contexts/PlayerContext';
+import { usePlayer } from '../contexts/PlayerContext';
 
 type Episode ={
   id: string;
@@ -30,7 +29,7 @@ type HomeProps = {
 
 export default function Home({latestEpisodes, allEpisodes}: HomeProps) {
   //utilização da função play
-  const {playList} = useContext(PlayerContext)
+  const {playList} = usePlayer();
 
   // criamos uma listagem para guardar todos os episódios
   const episodeList = [...latestEpisodes, ...allEpisodes];
