@@ -7,6 +7,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css'
 import { usePlayer } from '../../contexts/PlayerContext';
 
+
 export default function Player(){
     const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -22,6 +23,8 @@ export default function Player(){
         hasPrevious,
         isLooping,
         toggleLoop,
+        isShuffling,
+        toggleShuffle
     } = usePlayer();
 
 
@@ -100,7 +103,12 @@ export default function Player(){
                 </div>
 
                 <div className={styles.buttons}>
-                    <button type = "button" disabled={!episode} >
+                    <button 
+                        type = "button" 
+                        disabled={!episode || episodeList.length ==1} 
+                        onClick = {toggleShuffle}
+                        className={isShuffling ? styles.isActive : ''}
+                    >
                         <img src="/shuffle.svg" alt="Embaralhar"/> 
                     </button>
 
@@ -127,7 +135,7 @@ export default function Player(){
                         type = "button" 
                         disabled={!episode}
                         onClick = {toggleLoop}
-                        className={isLooping ? styles.IsActive : ''}
+                        className={isLooping ? styles.isActive : ''}
                     >
                         <img src="/repeat.svg" alt="Repetir"/> 
                     </button>

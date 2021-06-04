@@ -24,6 +24,8 @@ type PlayerContextData ={
     hasPrevious: boolean;
     isLooping: boolean;
     toggleLoop: () => void,
+    toggleShuffle: () => void;
+    isShuffling: boolean;
 
 };
 
@@ -38,6 +40,7 @@ export function PlayerContextProvider({children}: PlayerContextProviderProps){
     const [currentEpisodeIndex, setCurrentEpisodeIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isLooping, setIsLooping] = useState(false);
+    const [isShuffling, setIsShuffling] = useState(false);
   
     function play(episode: Episode){
       setEpisodeList([episode])
@@ -56,11 +59,16 @@ export function PlayerContextProvider({children}: PlayerContextProviderProps){
     //modificar botão play e pause
     function togglePlay(){
       setIsPlaying(!isPlaying);
+      
   
     }
 
     function toggleLoop(){
         setIsLooping(!isLooping);
+    }
+
+    function toggleShuffle(){
+        setIsShuffling(!isShuffling);
     }
   
     /* para saber quando foram utilizadas teclas para dar pause ou reproduzir*/
@@ -73,7 +81,10 @@ export function PlayerContextProvider({children}: PlayerContextProviderProps){
     
     // função só vai tocar o próximo se ele for menor que o tamanho total da listagem de eps
     function playNext(){
-        if(hasNext){
+        if (isShuffling){
+            const nextRandomEpisodeIndex = Math.floor(Math.random() * episodeList.length);
+            setCurrentEpisodeIndex(nextRandomEpisodeIndex);
+        } else if(hasNext){
             setCurrentEpisodeIndex(currentEpisodeIndex+1);
         }
     }
@@ -83,8 +94,6 @@ export function PlayerContextProvider({children}: PlayerContextProviderProps){
             setCurrentEpisodeIndex(currentEpisodeIndex-1)
         }
     }
-
-
   
     return (
         <PlayerContext.Provider 
@@ -103,6 +112,8 @@ export function PlayerContextProvider({children}: PlayerContextProviderProps){
                 hasPrevious,
                 isLooping,
                 toggleLoop,
+                toggleShuffle,
+                isShuffling
             }}
         >
             {children}
